@@ -1,0 +1,24 @@
+@import './core.scss';
+
+.add{
+  padding: 1em;
+  min-height: $minHeight;
+
+  &--card{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+  }
+
+  &--form{
+    &--input{
+      width: 80%;
+    }
+
+  }
+}
