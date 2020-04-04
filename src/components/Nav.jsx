@@ -32,7 +32,7 @@ export default function Nav() {
           </ul>
 
           <div style={{flexGrow:"1"}}></div>
-          <Typography variant="p" className="nav--username">
+          <Typography variant="body1" className="nav--username">
             Hey user
           </Typography>
           <Button
