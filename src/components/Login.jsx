@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login() {
+export default function Login(props) {
   const classes = useStyles();
   const [username, setUsername] = React.useState('');
 
@@ -35,6 +35,10 @@ export default function Login() {
     e.preventDefault();
     console.log("Hello",username)
   }
+
+  useEffect(()=>{
+    console.log("Lonin props-",props)
+  })
 
   return (
     <div className="login">

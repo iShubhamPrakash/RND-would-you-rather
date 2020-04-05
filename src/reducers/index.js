@@ -5,9 +5,9 @@ import { questionReducer } from './questions'
 import { usersReducer } from './users'
 
 const rootReducer = combineReducers({
-  // auth: authReducer,
-  user: usersReducer,
-  // questions: questionReducer
+  auth: authReducer,
+  users: usersReducer,
+  questions: questionReducer
 })
 
 export default rootReducer

@@ -10,13 +10,14 @@ import Add from './Add'
 import { Route ,Switch} from 'react-router-dom'
 
 import {getUsers} from '../actions/users'
-import {fetchInitialData} from '../actions/initialData'
+import {getQuestions} from '../actions/questions'
 
 import {_getUsers} from '../api/_DATA'
 class App extends Component {
 
   componentDidMount(){
     this.props.dispatch(getUsers());
+    this.props.dispatch(getQuestions());
   }
 
   render(){

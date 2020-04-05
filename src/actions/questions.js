@@ -1,16 +1,19 @@
 import {_getQuestions,_saveQuestion,_saveQuestionAnswer} from '../api/_DATA'
 
 //Action types
-const GET_QUESTIONS='GET_QUESTIONS'
-const SAVE_QUESTION='SAVE_QUESTION'
-const SAVE_QUESTION_ANSWER='SAVE_QUESTION_ANSWER'
+export const GET_QUESTIONS='GET_QUESTIONS'
+export const SAVE_QUESTION='SAVE_QUESTION'
+export const SAVE_QUESTION_ANSWER='SAVE_QUESTION_ANSWER'
 
 //Actions
-export const getQuestions=(questions)=>{
-  return{
-    type:GET_QUESTIONS,
-    payload: questions
-  }
+export const getQuestions=()=>(dispatch)=>{
+  _getQuestions().then(questions=>{
+    console.log("getQuestions called-",questions);
+    dispatch({
+      type:GET_QUESTIONS,
+      payload: questions
+    })
+  })
 }
 
 export const saveQuestion=(question)=>{

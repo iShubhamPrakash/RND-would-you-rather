@@ -4,7 +4,7 @@ import {_getUsers} from '../api/_DATA'
 export const GET_USERS='GET_USERS'
 
 //Actions
-export const getUsers=()=>async (dispatch)=>{
+export const getUsers=()=>(dispatch)=>{
   _getUsers().then(users=>{
     console.log("getUsers called-",users);
     dispatch({
