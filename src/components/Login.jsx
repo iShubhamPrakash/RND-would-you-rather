@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
@@ -10,8 +10,6 @@ import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
 import Button from '@material-ui/core/Button';
-
-import {_getUsers,_getQuestions,_saveQuestion,_saveQuestionAnswer} from '../api/_DATA'
 
 import '../styles/login.scss'
 
@@ -27,13 +25,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
+  const [username, setUsername] = React.useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setUsername(event.target.value);
   };
-  _getUsers()
-  .then(data=>console.log(_getUsers(data)))
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    console.log("Hello",username)
+  }
 
   return (
     <div className="login">
@@ -45,7 +46,7 @@ export default function Login() {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={age}
+            value={username}
             onChange={handleChange}
           >
             <MenuItem value={"sarahedo"}>Sarah Edo</MenuItem>
@@ -53,7 +54,7 @@ export default function Login() {
             <MenuItem value={"johndoe"}>John Doe</MenuItem>
           </Select>
       </FormControl>
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" onClick={handleSubmit}>
         Log In
       </Button>
       </Card>
