@@ -18,20 +18,21 @@ class App extends Component {
   componentDidMount(){
     this.props.dispatch(getUsers());
     this.props.dispatch(getQuestions());
+    console.log("Prope",this.props);
   }
 
   render(){
     return (
       <>
         <CssBaseline />
-        <Nav/>
+        <Nav username={this.props.auth.username}/>
         <div style={{height:"64px", width:"100%"}}></div>
         <Switch>
           <Route exact path="/home">
             <Home/>
           </Route>
           <Route exact path="/login">
-            <Login/>
+            <Login users={this.props.users} auth={this.props.auth}/>
           </Route>
           <Route exact path="/add">
             <Add/>
@@ -42,5 +43,7 @@ class App extends Component {
     );
   }
 }
-
-export default connect()(App);
+const mapStateToProps=(state)=>{
+  return state
+}
+export default connect(mapStateToProps)(App);

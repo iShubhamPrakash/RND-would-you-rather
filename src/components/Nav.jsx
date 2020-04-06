@@ -12,7 +12,7 @@ import {NavLink} from 'react-router-dom'
 
 import '../styles/nav.scss'
 
-export default function Nav() {
+export default function Nav(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   return (
@@ -25,7 +25,8 @@ export default function Nav() {
           <Typography variant="h6">
             Would you rather?
           </Typography>
-          <ul className="nav--links">
+          {props.username && <>
+            <ul className="nav--links">
             <li><NavLink exact to="/" >Home</NavLink></li>
             <li><NavLink to="/add" >Ask Question</NavLink></li>
             <li><NavLink to="/leader" >Leader Board</NavLink></li>
@@ -33,7 +34,7 @@ export default function Nav() {
 
           <div style={{flexGrow:"1"}}></div>
           <Typography variant="body1" className="nav--username">
-            Hey user
+            Hey {props.username}
           </Typography>
           <Button
             color="inherit"
@@ -41,6 +42,7 @@ export default function Nav() {
           >
               Log out
           </Button>
+          </>}
         </Toolbar>
       </AppBar>
     </div>

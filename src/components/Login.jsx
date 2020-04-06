@@ -53,9 +53,7 @@ export default function Login(props) {
             value={username}
             onChange={handleChange}
           >
-            <MenuItem value={"sarahedo"}>Sarah Edo</MenuItem>
-            <MenuItem value={"tylermcginnis"}>Tyler McGinnis</MenuItem>
-            <MenuItem value={"johndoe"}>John Doe</MenuItem>
+            {Object.keys(props.users).map(userId=><MenuItem value={userId}>{props.users[userId].name}</MenuItem>)}
           </Select>
       </FormControl>
       <Button variant="contained" color="primary" onClick={handleSubmit}>
