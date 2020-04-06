@@ -7,6 +7,7 @@ import Footer from './Footer'
 import Home from './Home'
 import Login from './Login'
 import Add from './Add'
+import NoFound from './NoFound'
 import { Route ,Switch} from 'react-router-dom'
 import ProtectedRoute from './ProtectedRoute'
 
@@ -30,15 +31,13 @@ class App extends Component {
         <Nav username={this.props.auth.username} dispatch={this.props.dispatch}/>
         <div style={{height:"64px", width:"100%"}}></div>
         <Switch>
-          <Route exact path="/home">
-            <Home/>
-          </Route>
           <Route exact path="/login">
             <Login {...this.props}/>
           </Route>
 
-          <ProtectedRoute exact path="/add" Component={Add} authenticated={this.props.auth.authenticated}/>
-
+          <ProtectedRoute exact path="/" component={Home} authenticated={this.props.auth.authenticated}/>
+          <ProtectedRoute exact path="/add" component={Add} authenticated={this.props.auth.authenticated}/>
+          <Route component={NoFound}/>
         </Switch>
         <Footer/>
       </>

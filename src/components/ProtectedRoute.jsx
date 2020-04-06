@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route, Redirect} from 'react-router-dom'
 
-const ProtectedRoute = ({ authenticated, Component, ...rest}) => (
+const ProtectedRoute = ({ authenticated, component:Component, ...rest}) => (
     <Route
         {...rest}
         render={props => (
