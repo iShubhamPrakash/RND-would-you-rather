@@ -7,6 +7,7 @@ import Footer from './Footer'
 import Home from './Home'
 import Login from './Login'
 import Add from './Add'
+import Poll from './Poll'
 import NoFound from './NoFound'
 import { Route ,Switch} from 'react-router-dom'
 import ProtectedRoute from './ProtectedRoute'
@@ -39,6 +40,7 @@ class App extends Component {
 
           <ProtectedRoute exact path="/" component={Home} authenticated={this.props.auth.authenticated} questions={this.props.questions}/>
           <ProtectedRoute exact path="/add" component={Add} authenticated={this.props.auth.authenticated}/>
+          <ProtectedRoute exact path="/question/:id" component={Poll} authenticated={this.props.auth.authenticated}/>
           <Route component={NoFound}/>
         </Switch>
         <Footer/>

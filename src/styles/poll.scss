@@ -1,0 +1,41 @@
+@import './core.scss';
+.poll{
+  // min-height: $minHeight;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 44px;
+
+  .question{
+    // max-height: 500px;
+    margin-bottom: 200px;
+    .card{
+      width: 100%;
+      margin: 1em auto;
+      .data{
+        display: flex;
+        flex-wrap: wrap;
+        .profile{
+          width: 40%;
+          padding: 2em;
+          border-right: 1px solid lightgray;
+        }
+
+        .poll{
+          width: 60%;
+          font-size: 2em;
+          text-align: center;
+
+          &__text{
+            color: #3F51B5;
+            font-weight: bold;
+          }
+
+          button{
+            text-decoration: none !important;
+          }
+        }
+      }
+    }
+  }
+}
