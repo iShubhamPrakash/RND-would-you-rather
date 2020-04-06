@@ -8,7 +8,8 @@ import Home from './Home'
 import Login from './Login'
 import Add from './Add'
 import { Route ,Switch} from 'react-router-dom'
-import { withRouter } from "react-router"
+import ProtectedRoute from './ProtectedRoute'
+
 
 import {getUsers} from '../actions/users'
 import {getQuestions} from '../actions/questions'
@@ -35,9 +36,9 @@ class App extends Component {
           <Route exact path="/login">
             <Login {...this.props}/>
           </Route>
-          <Route exact path="/add">
-            <Add/>
-          </Route>
+
+          <ProtectedRoute exact path="/add" Component={Add} authenticated={this.props.auth.authenticated}/>
+
         </Switch>
         <Footer/>
       </>
