@@ -1,6 +1,7 @@
 import {USER_LOG_IN,USER_LOG_OUT} from '../actions/auth'
 
-export const authReducer= (state={},action) => {
+export const authReducer= (state={authenticated:true,
+  username:'shubham'},action) => {
 
   switch(action.type){
     case USER_LOG_IN:

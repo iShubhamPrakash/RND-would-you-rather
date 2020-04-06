@@ -15,7 +15,9 @@ import '../styles/login.scss'
 
 import {userLogIn} from '../actions/auth'
 import { useHistory } from "react-router-dom"
+import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
+import Home from './Home'
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -42,8 +44,10 @@ export default function Login(props) {
 
   const handleSubmit=(e)=>{
     e.preventDefault();
+    // props.dispatch(showLoading)
     props.dispatch(userLogIn(username))
-    history.push('/add')
+    // props.dispatch(hideLoading)
+    history.push('/')
   }
 
 
