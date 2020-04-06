@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 export default function Home(props) {
   const [tab,setTab]=useState('unanswered')
   const users = useSelector(state => state.users)
+  const username = useSelector(state => state.auth.username)
 
 
   useEffect(() => {
@@ -28,13 +29,7 @@ export default function Home(props) {
     return requiredList.length? requiredList.map(id=><Question key={id} questionId={id} questions={questions} users={users} />): <div className="empty-page"><p>No questions availabe</p></div>
   }
 
-  const isAanswered=(id, questions)=>{
-
-    if(questions[id].optionOne.votes.length >0 || questions[id].optionTwo.votes.length)
-      return true
-
-    return false
-  }
+  const isAanswered=(id)=> Object.keys(users[username].answers).includes(id)
 
   return (
     <div className="home">

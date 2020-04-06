@@ -1,5 +1,6 @@
 import React, {useState}from 'react'
 import Button from '@material-ui/core/Button'
+import {Link} from 'react-router-dom'
 
 export default function question({questionId,questions,users}) {
 
@@ -22,9 +23,11 @@ export default function question({questionId,questions,users}) {
             <p className="poll__text">{optionOne.text}</p>
             OR
             <p className="poll__text">{optionTwo.text}</p>
-            <Button variant="contained" color="primary" onClick={e=>{}}>
-              View
-            </Button>
+            <Link to={'/question/'+questionId}>
+              <Button variant="contained" color="primary">
+                View Poll
+              </Button>
+            </Link>
           </div>
         </div>
 
