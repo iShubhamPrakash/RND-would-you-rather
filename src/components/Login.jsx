@@ -13,6 +13,9 @@ import Button from '@material-ui/core/Button';
 
 import '../styles/login.scss'
 
+import {userLogIn} from '../actions/auth'
+import { useHistory } from "react-router-dom"
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -27,18 +30,22 @@ export default function Login(props) {
   const classes = useStyles();
   const [username, setUsername] = React.useState('');
 
+  useEffect(()=>{
+    console.log("Lonin props-",props)
+  })
+
+  let history = useHistory()
+
   const handleChange = (event) => {
     setUsername(event.target.value);
   };
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    console.log("Hello",username)
+    props.dispatch(userLogIn(username))
+    history.push('/add')
   }
 
-  useEffect(()=>{
-    console.log("Lonin props-",props)
-  })
 
   return (
     <div className="login">

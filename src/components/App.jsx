@@ -8,6 +8,7 @@ import Home from './Home'
 import Login from './Login'
 import Add from './Add'
 import { Route ,Switch} from 'react-router-dom'
+import { withRouter } from "react-router"
 
 import {getUsers} from '../actions/users'
 import {getQuestions} from '../actions/questions'
@@ -25,14 +26,14 @@ class App extends Component {
     return (
       <>
         <CssBaseline />
-        <Nav username={this.props.auth.username}/>
+        <Nav username={this.props.auth.username} dispatch={this.props.dispatch}/>
         <div style={{height:"64px", width:"100%"}}></div>
         <Switch>
           <Route exact path="/home">
             <Home/>
           </Route>
           <Route exact path="/login">
-            <Login users={this.props.users} auth={this.props.auth}/>
+            <Login {...this.props}/>
           </Route>
           <Route exact path="/add">
             <Add/>

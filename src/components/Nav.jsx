@@ -7,13 +7,16 @@ import TouchAppOutlinedIcon from '@material-ui/icons/TouchAppOutlined'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import MenuItem from '@material-ui/core/MenuItem'
 import Button from '@material-ui/core/Button'
-
+import {userLogOut} from '../actions/auth'
 import {NavLink} from 'react-router-dom'
+import { useHistory } from "react-router-dom"
 
 import '../styles/nav.scss'
 
 export default function Nav(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  let history = useHistory()
+
 
   return (
    <div className={"nav"}>
@@ -39,6 +42,10 @@ export default function Nav(props) {
           <Button
             color="inherit"
             endIcon={<ExitToAppIcon/>}
+            onClick={e=>{
+              props.dispatch(userLogOut())
+              history.push('/login')
+            }}
           >
               Log out
           </Button>
