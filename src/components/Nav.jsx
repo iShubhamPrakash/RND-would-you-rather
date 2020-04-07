@@ -10,13 +10,23 @@ import Button from '@material-ui/core/Button'
 import {userLogOut} from '../actions/auth'
 import {NavLink} from 'react-router-dom'
 import { useHistory } from "react-router-dom"
+import Avatar from '@material-ui/core/Avatar'
+import {useSelector} from 'react-redux'
 
 import '../styles/nav.scss'
 
 export default function Nav(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   let history = useHistory()
+  const {users,auth}= useSelector(state=>state)
 
+  console.log("USERS",users,auth)
+  let name=""
+  let avatarURL=""
+  if(props.username){
+    name=users[props.username].name
+    avatarURL=users[props.username].avatarURL
+  }
 
   return (
    <div className={"nav"}>
@@ -36,8 +46,9 @@ export default function Nav(props) {
           </ul>
 
           <div style={{flexGrow:"1"}}></div>
+          <Avatar alt={name} src={avatarURL} />
           <Typography variant="body1" className="nav--username">
-            Hey {props.username}
+            {name}
           </Typography>
           <Button
             color="inherit"
