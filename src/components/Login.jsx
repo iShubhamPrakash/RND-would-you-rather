@@ -67,7 +67,7 @@ export default function Login(props) {
             {Object.keys(props.users).map(userId=><MenuItem value={userId}>{props.users[userId].name}</MenuItem>)}
           </Select>
       </FormControl>
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
+      <Button variant="contained" color="primary" onClick={handleSubmit} disabled={username === ""}>
         Log In
       </Button>
       </Card>

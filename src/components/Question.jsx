@@ -44,7 +44,7 @@ export default function question(props) {
                 <FormControlLabel value="optionOne" control={<Radio />} label={optionOne.text} />
                 <FormControlLabel value="optionTwo" control={<Radio />} label={optionTwo.text} />
               </RadioGroup>
-              <Button variant="contained" color="primary" onClick={handleSubmit}>
+              <Button variant="contained" color="primary" onClick={handleSubmit} disabled={option === null}>
                 Submit
               </Button>
             </FormControl>

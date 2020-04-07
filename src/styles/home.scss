@@ -7,39 +7,38 @@
   margin-right: auto;
   padding-top: 44px;
   // position: relative;
-}
-.question{
-  .card{
-    width: 100%;
-    margin: 1em auto;
-    .data{
-      display: flex;
-      flex-wrap: wrap;
-      .profile{
-        width: 40%;
-        padding: 2em;
-        border-right: 1px solid lightgray;
-      }
-
-      .poll{
-        width: 60%;
-        font-size: 2em;
-        text-align: center;
-
-        &__text{
-          color: #3F51B5;
-          font-weight: bold;
+  .question{
+    .card{
+      width: 100%;
+      margin: 1em auto;
+      .data{
+        display: flex;
+        flex-wrap: wrap;
+        .profile{
+          width: 40%;
+          padding: 2em;
+          border-right: 1px solid lightgray;
         }
 
-        button{
-          text-decoration: none !important;
+        .poll{
+          width: 60%;
+          font-size: 2em;
+          text-align: center;
+          margin-top: -40px;
+
+
+          &__text{
+            color: #3F51B5;
+            font-weight: bold;
+          }
+
+          button{
+            text-decoration: none !important;
+          }
         }
       }
     }
   }
-
-
-
 }
 
 .tab{
