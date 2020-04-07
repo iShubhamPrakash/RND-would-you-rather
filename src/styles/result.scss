@@ -1,0 +1,39 @@
+@import './core.scss';
+
+.result{
+  max-width: 700px;
+
+  .card{
+    margin-top: 50px;
+  }
+  .data{
+    display: flex;
+
+
+    .profile{
+      width: 40%;
+    }
+
+    .poll{
+      font-size: 1.2em;
+      margin-top: -50px;
+
+      .vote{
+        padding: 4px 2em;
+        border: 1px solid lightblue;
+        border-radius: 4px;
+        margin: 12px auto;
+        color: gray;
+        .poll__text{
+          font-weight: bold;
+        }
+      }
+
+      .active{
+        color: rgb(0, 78, 60);
+        background: rgb(221, 250, 193);
+        border-color: darkcyan;
+      }
+    }
+  }
+}

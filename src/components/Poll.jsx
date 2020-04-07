@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { Redirect, useParams, useHistory } from 'react-router-dom'
 import { useSelector,useDispatch } from 'react-redux'
 import Question from './Question'
 import {handleSaveQuestionAnswer} from '../actions/questions'
@@ -23,7 +23,13 @@ function Poll() {
       answer:option
     }
     await dispatch(handleSaveQuestionAnswer(ansData))
-    history.push('/')
+    setSubmitted(true)
+  }
+
+  const resultPage = `/question/${questionId}/result`
+
+  if (submitted === true) {
+      return <Redirect to={resultPage}/>;
   }
 
   return (

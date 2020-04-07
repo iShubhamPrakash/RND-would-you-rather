@@ -17,6 +17,7 @@ import LoadingBar from 'react-redux-loading-bar'
 import {getUsers} from '../actions/users'
 import {getQuestions} from '../actions/questions'
 import LeaderBoard from './LeaderBoard'
+import Result from './Result'
 
 class App extends Component {
 
@@ -40,6 +41,7 @@ class App extends Component {
           <ProtectedRoute exact path="/" component={Home} authenticated={this.props.auth.authenticated} questions={this.props.questions}/>
           <ProtectedRoute exact path="/add" component={Add} authenticated={this.props.auth.authenticated}/>
           <ProtectedRoute exact path="/question/:id" component={Poll} authenticated={this.props.auth.authenticated}/>
+          <ProtectedRoute exact path="/question/:id/result" component={Result} authenticated={this.props.auth.authenticated}/>
           <ProtectedRoute exact path="/leaderboard" component={LeaderBoard} authenticated={this.props.auth.authenticated}/>
           <Route component={NoFound}/>
         </Switch>
