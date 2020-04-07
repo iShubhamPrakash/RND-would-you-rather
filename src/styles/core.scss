@@ -18,6 +18,14 @@ $minHeight : calc(100vh - 128px);
 
 }
 
+.container{
+  min-height: $minHeight;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 img{
   width: 100%;
   height: auto;

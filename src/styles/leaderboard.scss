@@ -1,0 +1,23 @@
+@import './core.scss';
+
+.leader{
+  max-width: 700px;
+
+  .card{
+    margin-bottom: 2em;
+  }
+  .data{
+    display: flex;
+
+
+    .profile{
+      width: 40%;
+    }
+
+    .poll{
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  }
+
+}

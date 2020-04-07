@@ -32,7 +32,7 @@ export default function Nav(props) {
             <ul className="nav--links">
             <li><NavLink exact to="/" >Home</NavLink></li>
             <li><NavLink to="/add" >Ask Question</NavLink></li>
-            <li><NavLink to="/leader" >Leader Board</NavLink></li>
+            <li><NavLink to="/leaderboard" >Leader Board</NavLink></li>
           </ul>
 
           <div style={{flexGrow:"1"}}></div>
