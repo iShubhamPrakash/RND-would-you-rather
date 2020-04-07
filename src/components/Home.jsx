@@ -22,7 +22,7 @@ export default function Home(props) {
       }
     })
 
-    return requiredList.length? requiredList.map(id=><Question key={id} questionId={id} questions={questions} users={users} />): <div className="empty-page"><p>No questions availabe</p></div>
+    return requiredList.length? requiredList.map(id=><Question key={id} questionId={id} questions={questions} users={users} tab={tab}/>): <div className="empty-page"><p>No questions availabe</p></div>
   }
 
   const isAanswered=(id)=> Object.keys(users[username].answers).includes(id)

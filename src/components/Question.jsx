@@ -10,7 +10,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 
 export default function question(props) {
 
-  const {questionId,questions,users,option,setOption,handleSubmit,poll=false} = props
+  const {questionId,questions,users,option,setOption,handleSubmit,poll=false,tab} = props
 
   const author= questions[questionId].author
   const {name,avatarURL}=users[author]
@@ -30,7 +30,7 @@ export default function question(props) {
             <p className="poll__text">{optionOne.text}</p>
             OR
             <p className="poll__text">{optionTwo.text}</p>
-            <Link to={'/question/'+questionId}>
+            <Link to={tab==='answered'? '/question/'+questionId+'/result' : '/question/'+questionId}>
               <Button variant="contained" color="primary">
                 View Poll
               </Button>
