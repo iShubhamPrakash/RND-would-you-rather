@@ -16,6 +16,13 @@ export const getQuestions=()=>(dispatch)=>{
   })
 }
 
+
+export const handleSaveQuestion=(question)=>(dispatch,getState)=>{
+  return  _saveQuestion(question)
+  .then(qsn=>dispatch(saveQuestion(qsn)))
+  .catch(e=>alert("Something went wrong..."))
+}
+
 export const saveQuestion=(question)=>{
   return{
     type:SAVE_QUESTION,

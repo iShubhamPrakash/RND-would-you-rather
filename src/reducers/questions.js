@@ -4,6 +4,9 @@ export const questionReducer=(state={},action)=>{
   switch(action.type){
     case GET_QUESTIONS:
       return {...state,...action.payload}
+
+    case SAVE_QUESTION:
+      return {...state, [action.payload.id]: action.payload}
     default:
       return state
   }
