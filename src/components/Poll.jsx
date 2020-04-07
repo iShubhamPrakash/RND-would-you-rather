@@ -1,27 +1,34 @@
 import React,{useState,useEffect} from 'react'
-import { useParams, Route } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { useSelector,useDispatch } from 'react-redux'
 import Question from './Question'
+import {handleSaveQuestionAnswer} from '../actions/questions'
 import '../styles/poll.scss'
 
 function Poll() {
   const [option, setOption]=useState(null)
   const [submitted, setSubmitted]=useState(false)
 
-  const dispatch= useDispatch();
+  const history=useHistory()
+  const dispatch= useDispatch()
 
-  const {id:questionId}=useParams();
+  const {id:questionId}=useParams()
 
   const {questions,auth,users}=useSelector(state=>state)
 
   useEffect(()=>{
-    console.log("DID MOUNT",questionId, questions,auth,users);
+    console.log("DID MOUNT",questionId, questions,auth,users)
   },[])
 
-  const handleSubmit=()=>{
-
-
-    console.log("Submit..",option);
+  const handleSubmit=async ()=>{
+    const ansData={
+      authedUser:auth.username,
+      qid:questionId,
+      answer:option
+    }
+    // console.log("Submit..",ansData);
+    await dispatch(handleSaveQuestionAnswer(ansData))
+    history.push('/')
   }
 
   return (

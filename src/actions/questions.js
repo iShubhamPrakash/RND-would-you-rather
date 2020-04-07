@@ -1,5 +1,5 @@
 import {_getQuestions,_saveQuestion,_saveQuestionAnswer} from '../api/_DATA'
-
+import {getUsers} from './users'
 //Action types
 export const GET_QUESTIONS='GET_QUESTIONS'
 export const SAVE_QUESTION='SAVE_QUESTION'
@@ -28,6 +28,17 @@ export const saveQuestion=(question)=>{
     type:SAVE_QUESTION,
     payload: question
   }
+}
+
+
+export const handleSaveQuestionAnswer=(ansData)=>(dispatch,getState)=>{
+  return _saveQuestionAnswer(ansData)
+  // .then(_=>dispatch(saveQuestionAnswer(ansData)))
+  .then(_=>{
+    dispatch(getQuestions())
+    dispatch(getUsers())
+  })
+  .catch(e=>alert("Something went wrong..."))
 }
 
 export const saveQuestionAnswer=(data)=>{
