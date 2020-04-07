@@ -4,8 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import TouchAppOutlinedIcon from '@material-ui/icons/TouchAppOutlined'
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import MenuItem from '@material-ui/core/MenuItem'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import Button from '@material-ui/core/Button'
 import {userLogOut} from '../actions/auth'
 import {NavLink} from 'react-router-dom'
@@ -16,11 +15,9 @@ import {useSelector} from 'react-redux'
 import '../styles/nav.scss'
 
 export default function Nav(props) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
   let history = useHistory()
-  const {users,auth}= useSelector(state=>state)
+  const {users}= useSelector(state=>state)
 
-  console.log("USERS",users,auth)
   let name=""
   let avatarURL=""
   if(props.username){

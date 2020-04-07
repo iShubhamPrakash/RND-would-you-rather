@@ -1,5 +1,5 @@
-import React,{useState,useEffect} from 'react'
-import { Redirect, useParams, useHistory } from 'react-router-dom'
+import React,{useState} from 'react'
+import { Redirect, useParams } from 'react-router-dom'
 import { useSelector,useDispatch } from 'react-redux'
 import Question from './Question'
 import {handleSaveQuestionAnswer} from '../actions/questions'
@@ -9,7 +9,6 @@ function Poll() {
   const [option, setOption]=useState(null)
   const [submitted, setSubmitted]=useState(false)
 
-  const history=useHistory()
   const dispatch= useDispatch()
 
   const {id:questionId}=useParams()

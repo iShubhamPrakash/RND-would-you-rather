@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import Card from '@material-ui/core/Card'
 import { makeStyles } from '@material-ui/core/styles'
 import InputLabel from '@material-ui/core/InputLabel'
@@ -11,9 +11,8 @@ import '../styles/login.scss'
 
 import {userLogIn} from '../actions/auth'
 import { useHistory } from "react-router-dom"
-import { showLoading, hideLoading } from 'react-redux-loading-bar'
+// import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
-import Home from './Home'
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),

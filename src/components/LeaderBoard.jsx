@@ -33,14 +33,12 @@ function LeaderBoard() {
     return 0
   })
 
-  console.log("LeaderList=",leaderList)
-
   return (
     <div className="container leader">
       <h1>Leader Board</h1>
       {
         leaderList.map((user,i)=>{
-          return <div className="card">
+          return <div className="card" key={i}>
             <div className="header">{i+1}. {" "} {user.name}</div>
             <div className="data">
               <div className="profile">

@@ -34,12 +34,12 @@ function Result() {
           <div className="poll">
             <div className={optionSelected === 'optionOne' ? "vote active":"vote"}>
               <p className="poll__text">{optionOne.text}</p>
-              <LinearProgress variant="determinate" value={optionOnePercent} color="secondary" />
+              <LinearProgress variant="determinate" value={Number(optionOnePercent)} color="secondary" />
               <p>{optionOneVotes} out of {totalVotes} votes, {optionOnePercent}%</p>
             </div>
             <div className={optionSelected === 'optionTwo' ? "vote active":"vote"}>
               <p className="poll__text">{optionTwo.text}</p>
-              <LinearProgress variant="determinate" value={optionTwoPercent} color="secondary" />
+              <LinearProgress variant="determinate" value={Number(optionTwoPercent)} color="secondary" />
               <p>{optionTwoVotes} out of {totalVotes} votes, {optionTwoPercent}%</p>
             </div>
           </div>
