@@ -12,8 +12,6 @@ export default function question(props) {
 
   const {questionId,questions,users,option,setOption,handleSubmit,poll=false} = props
 
-  console.log("id=",questionId)
-  console.log("question=",questions)
   const author= questions[questionId].author
   const {name,avatarURL}=users[author]
 

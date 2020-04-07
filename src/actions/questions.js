@@ -8,7 +8,6 @@ export const SAVE_QUESTION_ANSWER='SAVE_QUESTION_ANSWER'
 //Actions
 export const getQuestions=()=>(dispatch)=>{
   _getQuestions().then(questions=>{
-    console.log("getQuestions called-",questions);
     dispatch({
       type:GET_QUESTIONS,
       payload: questions
@@ -47,8 +46,3 @@ export const saveQuestionAnswer=(data)=>{
     payload: data
   }
 }
-
-
-// let questions={}
-// _getQuestions()
-// .then(data=>questions=data)

@@ -1,15 +1,11 @@
 import React,{useEffect} from 'react'
 import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
-import InputBase from '@material-ui/core/InputBase';
-import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles'
+import InputLabel from '@material-ui/core/InputLabel'
+import MenuItem from '@material-ui/core/MenuItem'
+import FormControl from '@material-ui/core/FormControl'
+import Select from '@material-ui/core/Select'
+import Button from '@material-ui/core/Button'
 
 import '../styles/login.scss'
 
@@ -26,24 +22,20 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
-}));
+}))
 
 export default function Login(props) {
-  const classes = useStyles();
-  const [username, setUsername] = React.useState('');
-
-  useEffect(()=>{
-    console.log("Lonin props-",props)
-  })
+  const classes = useStyles()
+  const [username, setUsername] = React.useState('')
 
   let history = useHistory()
 
   const handleChange = (event) => {
-    setUsername(event.target.value);
-  };
+    setUsername(event.target.value)
+  }
 
   const handleSubmit=(e)=>{
-    e.preventDefault();
+    e.preventDefault()
     // props.dispatch(showLoading)
     props.dispatch(userLogIn(username))
     // props.dispatch(hideLoading)
@@ -64,7 +56,7 @@ export default function Login(props) {
             value={username}
             onChange={handleChange}
           >
-            {Object.keys(props.users).map(userId=><MenuItem value={userId}>{props.users[userId].name}</MenuItem>)}
+            {Object.keys(props.users).map(userId=><MenuItem value={userId} key={userId}>{props.users[userId].name}</MenuItem>)}
           </Select>
       </FormControl>
       <Button variant="contained" color="primary" onClick={handleSubmit} disabled={username === ""}>

@@ -56,7 +56,7 @@ export default function Add() {
           size="medium"
           color="primary"
           style={{margin:"0 auto"}}
-          disabled={optionOne=="" || optionTwo== ""}
+          disabled={optionOne==="" || optionTwo=== ""}
           onClick={handleSubmit}
         >
           Add Question

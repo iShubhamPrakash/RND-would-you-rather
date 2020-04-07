@@ -10,10 +10,6 @@ export default function Home(props) {
   const username = useSelector(state => state.auth.username)
 
 
-  useEffect(() => {
-    console.log("Props in home-",props)
-  })
-
   const renderQuestion=(questions,tab)=>{
     const questionList= Object.keys(questions)
     .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
@@ -42,8 +38,8 @@ export default function Home(props) {
 function Tab(props){
   return(
     <div className="tab">
-      <div className={props.tab == 'unanswered'? 'active':null} onClick={e=>props.setTab('unanswered')}>Unanswered Questions</div>
-      <div className={props.tab == 'answered'? 'active':null} onClick={e=>props.setTab('answered')}>Answered Questions</div>
+      <div className={props.tab === 'unanswered'? 'active':null} onClick={e=>props.setTab('unanswered')}>Unanswered Questions</div>
+      <div className={props.tab === 'answered'? 'active':null} onClick={e=>props.setTab('answered')}>Answered Questions</div>
     </div>
   )
 }

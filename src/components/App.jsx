@@ -17,13 +17,11 @@ import LoadingBar from 'react-redux-loading-bar'
 import {getUsers} from '../actions/users'
 import {getQuestions} from '../actions/questions'
 
-import {_getUsers} from '../api/_DATA'
 class App extends Component {
 
   componentDidMount(){
-    this.props.dispatch(getUsers());
-    this.props.dispatch(getQuestions());
-    console.log("Prope",this.props);
+    this.props.dispatch(getUsers())
+    this.props.dispatch(getQuestions())
   }
 
   render(){

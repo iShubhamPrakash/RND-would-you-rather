@@ -16,17 +16,12 @@ function Poll() {
 
   const {questions,auth,users}=useSelector(state=>state)
 
-  useEffect(()=>{
-    console.log("DID MOUNT",questionId, questions,auth,users)
-  },[])
-
   const handleSubmit=async ()=>{
     const ansData={
       authedUser:auth.username,
       qid:questionId,
       answer:option
     }
-    // console.log("Submit..",ansData);
     await dispatch(handleSaveQuestionAnswer(ansData))
     history.push('/')
   }
